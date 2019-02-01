@@ -8,6 +8,8 @@ echo "file name: " . $file_name . "<br>";
 echo "file temporary name: " . $file_tmpname . "<br>";
 echo "file size: " . $file_size . "<br>";
 
+echo '<img src="' . $file_tmpname . '" >';
+
 ?>
 
 <html>
