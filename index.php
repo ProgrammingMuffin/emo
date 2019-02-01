@@ -1,7 +1,7 @@
 <?php
 
 $file_name = $_FILES['cam']['name'];
-$file_tmpname = $_FILES['']['tmp_name'];
+$file_tmpname = $_FILES['cam']['tmp_name'];
 $file_size = $_FILES['cam']['size'];
 
 echo "file name: " . $file_name . "<br>";
