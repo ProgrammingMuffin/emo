@@ -94,3 +94,12 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+@media only screen and (max-width: 480px)
+{
+	.topbar_container{
+		min-width: 480px;
+		height: 100px;
+	}
+}
