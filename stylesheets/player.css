@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Nanum+Gothic|Open+Sans|Slabo+27px|Open+Sans+Condensed');
+
+
+body{
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+:root{
+	--primary-color: rgb(70, 94, 135);
+	--secondary-color: rgb(14, 67, 104);
+}
+
+.topbar_container{
+	background-color: var(--primary-color);
+	width: 100%;
+	height: 75px;
+	overflow: auto;
+}
+
+.topbar{
+	background-color: inherit;
+	color: white;
+	width: 800px;
+	height: 75px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.topbar .button{
+	background-color: inherit;
+	color: white;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 17px;
+	margin-right: 25px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid white;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 16px;
+	text-align: center;
+	float: right;
+	outline: 0;
+	transition: background-color 0.4s, color 0.4s;
+	-webkit-transition: background-color 0.4s, color 0.4s;
+	-o-transition: background-color 0.4s, color 0.4s;
+	-moz-transition: background-color 0.4s, color 0.4s;
+}
+
+.topbar .button:hover{
+	background-color: white;
+	color: black;
+}
+
+.maincontainer{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	overflow: auto;
+}
+
+.leftcontainer{
+	width: 610px;
+	float: left;
+	overflow: auto;
+}
+
+.rightcontainer{
+	width: 390px;
+	float: left;
+	overflow: auto;
+}
+
+.mostplayed{
+	width: 350px;
+	min-height: 525px;
+	color: black;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid var(--secondary-color);
+	overflow: auto;
+}
+
+.mostplayed .title{
+	background-color: var(--primary-color);
+	color: white;
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 18px;
+}
+
+.mostplayed .warning{
+	width: 300px;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 17px;
+}
+
+.player{
+	background-color: white;
+	color: white;
+	width: 600px;
+	height: 525px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid var(--secondary-color);
+}
+
+.song_title{
+	background-color: var(--secondary-color);
+	width: calc(100% - 10px);
+	height: 50px;
+	line-height: 50px;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 18px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.visualizer{
+	width: 100%;
+}
+
+.player .controls{
+	width: 600px;
+	border-radius: unset;
+	color: blue;
+	display: block;
+	margin-top: 5px;
+}
+
+#grey_mask{
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: 100%;
+	z-index: 30;
+	position: fixed;
+	display: none;
+}
+
+#sense_window{
+	background-color: var(--primary-color);
+	color: white;
+	width: 500px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	position: fixed;
+	top: 175px;
+	left: calc(50% - 250px);
+	z-index: 50;
+	display: none;
+	overflow: auto;
+	box-shadow: 0px 0px 20px 2px black;
+	-webkit-box-shadow: 0px 0px 20px 2px black;
+	-moz-box-shadow: 0px 0px 20px 2px black;
+	-o-box-shadow: 0px 0px 20px 2px black;
+}
+
+#sense_window .title{
+	background-color: var(--secondary-color);
+	width: 500px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 17px;
+}
+
+#sense_window .left_container{
+	width: 200px;
+	float: left;
+	margin-left: 50px;
+}
+
+#sense_window .right_container{
+	width: 150px;
+	float: left;
+}
+
+#sense_window .label{
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 16px;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	display: block;
+	margin-left: 25px;
+}
+
+.emoji_list{
+	background-color: var(--secondary-color);
+	width: 150px;
+	height:  150px;
+	margin-top: 15px;
+	margin-left: 25px;
+	line-height: 50px;
+	overflow: auto;
+}
+
+.emoji_list .button{
+	background: inherit;
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin-left: 15px;
+	margin-top: 15px;
+	float: left;
+}
+
+.right_container .button{
+	background-color: var(--secondary-color);
+	color: white;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	margin-top: 15px;
+	margin-left: 25px;
+	display: block;
+}

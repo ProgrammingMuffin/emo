@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Nanum+Gothic|Open+Sans|Slabo+27px|Open+Sans+Condensed');
+
+.maincontainer .formwindow{
+	height: 250px;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="email"]{
+	background-color: white;
+}
