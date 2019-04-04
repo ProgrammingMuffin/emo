@@ -2,8 +2,15 @@
 
 include "server_vars.php";
 
-$errors = 0;
-$error_string = "";
+if($_COOKIE["logged"] == 1)
+{
+	header("Location: player.php");
+}
+
+session_start();
+
+$no_err = 0;
+$errors = "";
 
 $regname = strip_tags($_POST["regname"]);
 $regpass = strip_tags($_POST["regpass"]);
@@ -14,9 +21,10 @@ $today = time();
 
 if($regpass != $confpass)
 {
-	$errors++;
-	$error_string .= "Passwords don't match!<br>";
-	//header("Location: signup.php");
+	$no_err++;
+	$errors .= "Passwords don't match!<br>";
+	$_SESSION["signup_errors"] = $errors;
+	header("Location: signup.php");
 }
 else
 {
@@ -27,19 +35,21 @@ $conn = new mysqli($HOST, $USERNAME, $PASSWORD, $DBNAME_CORE);
 
 if($conn->connect_errno)
 {
-	echo "MySQLi error occurred: " . $conn->connect_error;
+	$no_err++;
+	$errors .= "Database error<br>";
 }
 else
 {
 	echo "MySQLi connection successfully established!";
 }
 
-if($q1 = $conn->prepare("SELECT COUNT(*) FROM coreaccounts WHERE username=?"))
+if($q1 = $conn->prepare("SELECT username FROM coreaccounts WHERE username=?"))
 {
 	$q1->bind_param("s", $regname);
 	$q1->execute();
-	$q1->bind_result($count);
+	$q1->bind_result($ret_username);
 	$q1->store_result();
+	$count = $q1->num_rows;
 	if($count == 0)
 	{
 		if($q2 = $conn->prepare("INSERT INTO coreaccounts VALUES (?, ?, ?, ?, ?)"))
@@ -49,21 +59,36 @@ if($q1 = $conn->prepare("SELECT COUNT(*) FROM coreaccounts WHERE username=?"))
 			if($q2->affected_rows > 0)
 			{
 				echo "Successfully created an account!<br>";
+				unset($_SESSION["signup_errors"]);
 			}
 			else
 			{
-				echo "Query Failed!: " . $conn->error;
+				$no_err++;
+				$errors .= "Error creating account, try again<br>";
 			}
 		}
 		else
 		{
-			echo "Query Failed!: " . $conn->error;
+			$no_err++;
+			$errors .= "Database Error";
 		}
+	}
+	else
+	{
+		$no_err++;
+		$errors .= "Account already exists<br>";
 	}
 }
 else
 {
-	echo "Query Failed!: " . $conn->error;
+	$no_err++;
+	$errors .= "Database Error";
+}
+
+if($no_err > 0)
+{
+	$_SESSION["signup_errors"] = $errors;
+	header("Location: signup.php");
 }
 
 ?>

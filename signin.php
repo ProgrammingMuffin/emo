@@ -1,3 +1,14 @@
+<?php
+
+if($_COOKIE["logged"] == 1)
+{
+	header("Location: player.php");
+}
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +24,19 @@
 <div class="greymask" >
 <form class="maincontainer" action="loginauth.php" method="post" >
 	<div class="tagline" >Welcome Back!</div>
-	<div class="error_pool" >Username or Password is wrong</div>
+	<div class="error_pool" >
+		<?php
+		
+		if(isset($_SESSION["signin_errors"]))
+		{
+			echo $_SESSION["signin_errors"];
+		}
+		
+		?>
+	</div>
 	<div class="formwindow" >
-		<input type="text" name="regname" placeholder="Enter username" >
-		<input type="password" name="regpass" placeholder="Enter password" >
+		<input type="text" name="regname" placeholder="Enter username" required>
+		<input type="password" name="regpass" placeholder="Enter password" required>
 		<div class="buttoncontainer" >
 			<input type="submit" value="Sign In" >
 			<a href="index.php" ><div class="button" >Back</div></a>

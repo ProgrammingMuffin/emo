@@ -1,15 +1,10 @@
 <?php
 
-if(!isset($_COOKIE['logged']))
+include "utility.php";
+
+if($_COOKIE["logged"] == 0)
 {
 	header("Location: signin.php");
-}
-else
-{
-	if($_COOKIE['logged'] == 0)
-	{
-		header("Location: signin.php");
-	}
 }
 
 ?>
