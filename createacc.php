@@ -60,6 +60,7 @@ if($q1 = $conn->prepare("SELECT username FROM coreaccounts WHERE username=?"))
 			{
 				echo "Successfully created an account!<br>";
 				unset($_SESSION["signup_errors"]);
+				header("Location: regsuccess.php");
 			}
 			else
 			{

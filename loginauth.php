@@ -63,7 +63,7 @@ function AuthorizeLogin()
 	unset($_SESSION["signin_errors"]);
 	echo "successfully logged in<br>";
 	echo "cookie value: " . $_COOKIE["logged"];
-	header("Location: meganote.php");
+	header("Location: logsuccess.php");
 }
 
 ?>

@@ -41,10 +41,6 @@ if($_COOKIE["logged"] != 1)
 		<div class="right_container">
 			<div class="label" >Scan From Camera</div>
 			<div class="button" >Scan</div>
-			<form action="imageprocess.php" method="post" enctype="multipart/form-data" >
-				<input type="file" name="userimage" class="file_button" accept="image/*" value="Scan">
-				<input type="submit" value="upload" style="float: right; margin-right: 25px;">
-			</form>
 		</div>
 	</div>
 	<div class="maincontainer" >

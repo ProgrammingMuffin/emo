@@ -182,12 +182,12 @@ body{
 	background-color: var(--primary-color);
 	color: white;
 	width: 500px;
-	height: 250px;
+	height: 325px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid black;
 	position: fixed;
-	top: 175px;
+	top: 150px;
 	left: calc(50% - 250px);
 	z-index: 50;
 	display: none;
@@ -264,4 +264,12 @@ body{
 	margin-top: 15px;
 	margin-left: 25px;
 	display: block;
+}
+
+.file_button{
+	display: block;
+	float: right;
+	margin-right: -100px;
+	margin-top: 15px;
+	height: 40px;
 }

@@ -12,7 +12,7 @@ if($_COOKIE["logged"] == 0)
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Let\'s leave this empty for now</title>
+	<title>Successfully Logged In</title>
 	<link href="stylesheets/meganote.css" rel="stylesheet" type="text/CSS" />
 </head>
 <body>
