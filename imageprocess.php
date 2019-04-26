@@ -5,11 +5,20 @@ if(!isset($_SESSION["logged"]) || $_SESSION["logged"] == 0)
 	//header("Location: signin.php");
 }
 
-$image_name = $_FILES["userimage"]["tmp_name"];
+/*$image_name = $_FILES["userimage"]["tmp_name"];
 $actual_name = basename($_FILES["userimage"]["name"]);
 echo "image name: " . $image_name . "<br>";
 echo "actual name: " . $actual_name . "<br>";
-move_uploaded_file($image_name, "faces/$actual_name");
+move_uploaded_file($image_name, "faces/$actual_name");*/
+
+//$command = escapeshellcmd('facifier/src/facifier.py');
+//$output = shell_exec($command);
+
+$command = escapeshellcmd("python facifier/src/facifier.py");
+
+$output = shell_exec($command);
+
+echo $output;
 
 ?>
 
@@ -23,7 +32,7 @@ move_uploaded_file($image_name, "faces/$actual_name");
 	<img id="processarea" class="face" src=
 	<?php 
 
-	echo '"' . "faces/$actual_name" . '"';
+	//echo '"' . "faces/$actual_name" . '"';
 
 	?>
 	>
