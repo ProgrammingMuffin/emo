@@ -1,25 +1,31 @@
 <?php
 
+include "link.php"; 
+
 if(!isset($_SESSION["logged"]) || $_SESSION["logged"] == 0)
 {
 	//header("Location: signin.php");
 }
 
-/*$image_name = $_FILES["userimage"]["tmp_name"];
-$actual_name = basename($_FILES["userimage"]["name"]);
-echo "image name: " . $image_name . "<br>";
-echo "actual name: " . $actual_name . "<br>";
-move_uploaded_file($image_name, "faces/$actual_name");*/
+$cmd = "main.exe";
+chdir("facifier/src");
+$output = array();
+exec("$cmd", $output);
 
-//$command = escapeshellcmd('facifier/src/facifier.py');
-//$output = shell_exec($command);
+echo implode("<br>", $output)
 
-$command = escapeshellcmd("python facifier/src/facifier.py");
+/*$command = escapeshellcmd("python facifier/src/facifier.py"); //image storage in front end (javascript)
 
 $output = shell_exec($command);
 
-echo $output;
+echo $output; */
 
+/*sleep(3);
+
+$ln = getlink($output);
+
+header("Location: $ln");
+*/
 ?>
 
 <html>

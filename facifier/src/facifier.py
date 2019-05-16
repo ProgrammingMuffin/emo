@@ -42,13 +42,12 @@ def start_webcam(model_emotion, model_gender, window_size, window_name='live', u
     cv2.destroyWindow(window_name)
 
 def analyze_picture(model_emotion, model_gender, path, window_size, window_name='static'):
+    image = cv2.imread(path, 1)
     #cv2.namedWindow(window_name, WINDOW_NORMAL)
     #cv2.namedWindow(window_name, WINDOW_NORMAL)
     #if window_size:
     #    width, height = window_size
     #    cv2.resizeWindow(window_name, width, height)
-
-    image = cv2.imread(path, 1)
     for normalized_face, (x, y, w, h) in find_faces(image):
         global emotion_prediction, gender_prediction, pemotion
         emotion_prediction = model_emotion.predict(normalized_face)
@@ -60,7 +59,7 @@ def analyze_picture(model_emotion, model_gender, path, window_size, window_name=
         cv2.putText(image, emotions[emotion_prediction[0]], (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,255), 2)
         pemotion = emotions[emotion_prediction[0]]
         if(pemotion == "afraid"):
-            print("happy")
+            print("sad")
         elif(pemotion == NONE):
             print("happy")
         else:
@@ -104,8 +103,7 @@ if __name__ == '__main__':
                 if os.path.isfile(path):
                     analyze_picture(fisher_face_emotion, fisher_face_gender, path, window_size=(1280, 720), window_name=window_name)
                     quit()
-                else:
-                    print("File not found!")
-    else:
-        print("Invalid input, exiting program.")
+                    #print("File not found!")
+    #else:
+        #print("Invalid input, exiting program.")
 

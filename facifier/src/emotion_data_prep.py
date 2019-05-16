@@ -20,7 +20,7 @@ def extract_faces(emotions):
     if not os.path.exists('../data/emotion'):
         os.makedirs('../data/emotion')
     for emotion in emotions:
-        print("Processing %s data..." % emotion)
+        #print("Processing %s data..." % emotion)
         images = glob.glob('../data/raw_emotion/%s/*.jpg' % emotion)
         if not os.path.exists('../data/emotion/%s' % emotion):
             os.makedirs('../data/emotion/%s' % emotion)
@@ -31,6 +31,7 @@ def extract_faces(emotions):
                 try:
                     cv2.imwrite("../data/emotion/%s/%s.jpg" % (emotion, file_number + 1), face[0])
                 except:
+                    output = "Error in processing image"
                     print("Error in processing %s" % image)
 
     print("Face extraction finished")

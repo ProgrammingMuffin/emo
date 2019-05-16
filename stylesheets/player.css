@@ -198,6 +198,50 @@ body{
 	-o-box-shadow: 0px 0px 20px 2px black;
 }
 
+#cam{
+	background-color: var(--primary-color);
+	color: white;
+	width: 800px;
+	height: 550px;
+	position: fixed;
+	top: 85px;
+	left: calc(50% - 400px);
+	z-index: 60;
+	display: none;
+}
+
+#canvas{
+	display: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#video
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#snap{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#process{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#scan_btn{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+}
+
 #sense_window .title{
 	background-color: var(--secondary-color);
 	width: 500px;
