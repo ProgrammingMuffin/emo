@@ -1,6 +1,8 @@
-# emo
+### emo player
 
-This is basically related to my mini project.
+#### This is basically related to my mini project.
+
+It is an emotion based music player that uses Haar-Cascade classifier to detect facial emotions and picks a song from the database and plays it.
 
 whatever code I've written for the front-end and back-end for the web based stuff, is present here..
 
